@@ -1,6 +1,6 @@
 # investmenttrack
 
-**InvestmentTrack** é uma aplicação web pensada para ajudar pessoas iniciantes — especialmente estudantes, jovens ou quem está começando com pouco — a organizarem e acompanharem seus investimentos de forma simples e visual.
+**InvestmentTrack** é uma aplicação web pensada para ajudar pessoas iniciantes — especialmente estudantes, jovens ou quem está começando com pouco — a organizarem e acompanharem seus investimentos de forma simples e visual .
 
 ## 🚀 Objetivo
 
