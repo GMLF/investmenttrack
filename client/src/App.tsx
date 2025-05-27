@@ -1,19 +1,14 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Login from './pages/Login';
+import CadastroUsuario from './pages/CadastroUsuario';
+
 function App() {
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        background: "linear-gradient(to right, #7e22ce, #ec4899, #ef4444)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <h1 style={{ color: "white", fontSize: "2rem", fontWeight: "bold" }}>
-        Tailwind quem? Agora vai de novo 😎
-      </h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigate to="/login" />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/cadastro" element={<CadastroUsuario />} />
+    </Routes>
   );
 }
 

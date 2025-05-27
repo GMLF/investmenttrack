@@ -101,3 +101,23 @@ app.get('/dashboard/:userId', async (req, res) => {
     res.status(500).json({ error: 'Erro ao gerar dashboard' });
   }
 });
+
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (!user || user.password !== password) {
+      return res.status(401).json({ error: 'E-mail ou senha inválidos' });
+    }
+
+    res.status(200).json({ message: 'Login bem-sucedido', userId: user.id });
+  } catch (error) {
+    console.error('Erro no login:', error);
+    res.status(500).json({ error: 'Erro interno no servidor' });
+  }
+});
+
