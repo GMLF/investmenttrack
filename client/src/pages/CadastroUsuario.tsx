@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import styles from './CadastroUsuario.module.css';
 
 export default function CadastroUsuario() {
@@ -9,6 +10,8 @@ export default function CadastroUsuario() {
     password: '',
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -17,11 +20,12 @@ export default function CadastroUsuario() {
     e.preventDefault();
     try {
       await axios.post('http://localhost:3001/users', form);
-      alert('Usuário cadastrado com sucesso!');
       setForm({ name: '', email: '', password: '' });
+      navigate('/login');
     } catch (error) {
       alert('Erro ao cadastrar usuário.');
       console.error(error);
+      setForm({ name: '', email: '', password: '' });
     }
   };
 

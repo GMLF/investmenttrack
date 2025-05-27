@@ -23,6 +23,7 @@ export default function Login() {
       // Aqui você pode armazenar token ou redirecionar para dashboard futuramente
     } catch (error: any) {
       alert(error.response?.data?.error || 'Erro ao fazer login');
+      setForm({ email: '', password: '' });
     }
   };
 
